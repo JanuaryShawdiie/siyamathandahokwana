@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online store</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;} */
+    
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+    </style>
+    </head>
+<body>
+
+  <div class="maincontainer">
+    <div class="logo">
+        <img src="images/Logo.png" alt="logo" width="200px">
+    </div>
+    <form class="searchbar">
+        <input type="text" placeholder="I'm shoping for..." name="q">
+        <button type="submit"><i class="ri-search-line"></i></button>
+    </form>
+    <div class="icons">
+        <div class="icon1">
+            <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" aria-hidden="false" focusable="false"><path d="M512 128a32 32 0 0 1 31.850667 28.928l0.149333 3.072V512a32 32 0 0 1-28.928 31.850667L512 544H160a32 32 0 0 1-3.072-63.850667L160 480l320-0.021333V160a32 32 0 0 1 28.928-31.850667L512 128z m-160 0A74.666667 74.666667 0 0 1 426.666667 202.666667v149.333333a74.666667 74.666667 0 0 1-74.666667 74.666667h-149.333333A74.666667 74.666667 0 0 1 128 352v-149.333333A74.666667 74.666667 0 0 1 202.666667 128z m0 64h-149.333333a10.666667 10.666667 0 0 0-10.666667 10.666667v149.333333a10.666667 10.666667 0 0 0 10.666667 10.666667h149.333333a10.666667 10.666667 0 0 0 10.666667-10.666667v-149.333333a10.666667 10.666667 0 0 0-10.666667-10.666667z m469.333333-64h-149.333333A74.666667 74.666667 0 0 0 597.333333 202.666667v149.333333a74.666667 74.666667 0 0 0 74.666667 74.666667h149.333333a74.666667 74.666667 0 0 0 74.666667-74.666667v-149.333333A74.666667 74.666667 0 0 0 821.333333 128z m-149.333333 64h149.333333a10.666667 10.666667 0 0 1 10.666667 10.666667v149.333333a10.666667 10.666667 0 0 1-10.666667 10.666667h-149.333333a10.666667 10.666667 0 0 1-10.666667-10.666667v-149.333333a10.666667 10.666667 0 0 1 10.666667-10.666667z m149.333333 405.333333h-149.333333a74.666667 74.666667 0 0 0-74.666667 74.666667v149.333333a74.666667 74.666667 0 0 0 74.666667 74.666667h149.333333a74.666667 74.666667 0 0 0 74.666667-74.666667v-149.333333a74.666667 74.666667 0 0 0-74.666667-74.666667z m-149.333333 64h149.333333a10.666667 10.666667 0 0 1 10.666667 10.666667v149.333333a10.666667 10.666667 0 0 1-10.666667 10.666667h-149.333333a10.666667 10.666667 0 0 1-10.666667-10.666667v-149.333333a10.666667 10.666667 0 0 1 10.666667-10.666667z m-320-64h-149.333333A74.666667 74.666667 0 0 0 128 672v149.333333A74.666667 74.666667 0 0 0 202.666667 896h149.333333a74.666667 74.666667 0 0 0 74.666667-74.666667v-149.333333a74.666667 74.666667 0 0 0-74.666667-74.666667z m-149.333333 64h149.333333a10.666667 10.666667 0 0 1 10.666667 10.666667v149.333333a10.666667 10.666667 0 0 1-10.666667 10.666667h-149.333333a10.666667 10.666667 0 0 1-10.666667-10.666667v-149.333333a10.666667 10.666667 0 0 1 10.666667-10.666667zM512 597.333333a32 32 0 0 1 31.850667 28.928l0.149333 3.072v234.666667a32 32 0 0 1-63.850667 3.072L480 864v-234.666667A32 32 0 0 1 512 597.333333z m352-117.333333a32 32 0 0 1 3.072 63.850667l-3.072 0.149333h-234.666667a32 32 0 0 1-3.072-63.850667l3.072-0.149333h234.666667z"></path></svg>
+              <p>Download the<br>AlieExpress</p>
+           </div>
+           <div class="icon1">
+            <img src="images/flag.jpg" width="30px">
+             <p>EN/<br><b>ZAR</b><i class="ri-arrow-down-wide-fill"></i></p>
+           </div> 
+           <div class="icon1">
+            <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" aria-hidden="false" focusable="false"><path d="M512 105.344a204.010667 204.010667 0 1 0 0 408 204.010667 204.010667 0 0 0 0-408z m0 66.666667a137.322667 137.322667 0 1 1 0 274.645333 137.322667 137.322667 0 0 1 0-274.666667z m114.88 384.426666c138.026667 0 257.877333 94.101333 291.093333 227.456l1.6 6.826667 19.626667 87.317333a33.322667 33.322667 0 0 1-64.256 17.536l-0.810667-2.944-19.605333-87.317333a233.344 233.344 0 0 0-221.504-182.122667l-6.144-0.085333h-229.76c-107.093333 0-200.149333 72.874667-226.218667 176.213333l-1.429333 5.994667-19.626667 87.317333a33.322667 33.322667 0 0 1-65.557333-11.605333l0.512-2.986667 19.626667-87.317333a300.010667 300.010667 0 0 1 285.696-234.197333l6.997333-0.085334h229.76z"></path></svg>
+             <p>Welcome<br><b>Sign in/ Register</b><i class="ri-arrow-down-wide-fill"></i></p>
+           </div>
+           <div class="icon1">
+             <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" aria-hidden="false" focusable="false"><path d="M277.333333 938.666667a64 64 0 1 0 0-128 64 64 0 0 0 0 128z m469.333334 0a64 64 0 1 0 0-128 64 64 0 0 0 0 128zM13.610667 103.936a32 32 0 0 1 42.453333-15.658667 174.293333 174.293333 0 0 1 99.626667 133.717334l0.213333 1.984 711.808 0.021333a74.666667 74.666667 0 0 1 74.538667 70.570667l0.128 4.096a74.666667 74.666667 0 0 1-0.384 7.466666l-0.469334 3.733334-57.152 376.533333a96 96 0 0 1-90.346666 81.493333l-4.565334 0.106667H236.010667a96 96 0 0 1-94.869334-81.28l-0.597333-4.522667-44.416-415.978666-0.426667-1.237334a31.872 31.872 0 0 1-1.109333-5.909333L94.442667 256c0-1.045333 0.042667-2.069333 0.149333-3.072l0.064-0.554667-1.877333-17.493333a110.293333 110.293333 0 0 0-58.965334-86.272l-4.544-2.218667a32 32 0 0 1-15.658666-42.453333zM204.16 675.413333a32 32 0 0 0 28.8 28.458667l3.029333 0.149333h553.450667a32 32 0 0 0 31.061333-24.32l0.576-2.88 57.152-376.533333a10.666667 10.666667 0 0 0-8.64-12.096l-1.92-0.170667-704.874666-0.021333 41.386666 387.413333z"></path></svg>
+           <div class="p">
+             <p class="num0">0</p>
+             <p>cart</p>
+           </div>
+           </div>
+    </div>
+</div>
+
+<div class="navbar">
+<div class="catagories">
+  <button class="cat-drop"><i class="ri-file-list-line"></i>All Catagories
+    <i class="ri-arrow-down-wide-fill"></i>
+  </button>
+  <div class="catdrop-content">
+    <a href="#">jewelry & Watches</a>
+    <a href="#">Home & Garden</a>
+    <a href="#">Home Appliance</a>
+    <a href="#">Furniture</a>
+    <a href="#">Hair Extensions & Wigs</a>
+    <a href="#">Men's Clothing</a>
+    <a href="#">Accessories</a>
+    <a href="#">Consumer Eletronics</a>
+    <a href="#">Home Improvement & Lighting</a>
+    <a href="#">Automotive & Motorcycle</a>
+    <a href="#">Luggages & Bags</a>
+    <a href="#">Shoes</a>
+    <a href="#">Special Occasion Costume</a>
+    <a href="#">Women's Clothing</a>
+    <a href="#">Sports & Entertainment</a>
+    <a href="#">Toys & Games</a>
+    <a href="#">Babies & Kids</a>
+    <a href="#">Phones & Telecommmunication</a>
+    <a href="#">Computer, Office & Education</a>
+    <a href="#">Pet Supplies</a>
+    <a href="#">Security & Protection</a>
+    <a href="#">Beauty & Health</a>
+    <a href="#">Tools & Indutrial</a>
+    <a href="#">Lingerie & Loungewear</a>
+  </div>
+</div>
+
+<a href="#NN">NN</a>
+<a href="#Bestseller">Bestseller</a>
+<a href="Top Brand">Top Brand</a>
+<a href="Home & Garden">Home & Garden</a>
+<a href="#Hair Extensions & Wigs">Hair Extensions & Wigs</a>
+
+<div class="dropdown">
+<button class="drpbtn">More
+  <i class="ri-arrow-down-wide-fill"></i>
+</button>
+<!-- <div class="dropdown-content">
+  <a href="#">Men's Clothing</a>
+  <a href="#">Accessories</a>
+  <a href="#">Consumer Eletronics</a>
+  <a href="#">Home Improvement & Lighting</a>
+  <a href="#">Home Appliance</a>
+  <a href="#">Automotive & Motorcycle</a>
+</div> -->
+</div>
+</div>
+  <div class="maincon">
+    <div class="con1">
+       <p><b>Better choices, <br>better prices</b></p>
+    </div>
+      <div class="icon-con">
+        <div class="dollar">
+        <i class="ri-money-dollar-circle-line">
+        </i><p><b>Value-for-money</b><br>We offer competive prices on<br>milliobs of items</p>
+        </div>
+        <div class="groupline">
+        <i class="ri-group-line"></i><p><b>Shoppers worldwide</b><br>More than 300 millions shoppers<br>from 200+ countries & regions</p>
+        </div>
+        <div class="truck">
+        <i class="ri-truck-line"></i><p><b>Fast delivery</b><br>Faster delivery on selected items<br>thanks to our improved logistics</p>
+        </div>
+        <div class="card">
+        <i class="ri-bank-card-line"></i><p><b>Safe payments</b><br>Safe payments methods preferred<br>by international shoppers</p>
+        </div>
+        <div class="sheild">
+        <i class="ri-shield-check-line"></i><p><b>Buyer protection</b><br>Get a refund if items arrive late<br>or not as described</p>
+        </div>
+        <div class="phone">
+        <i class="ri-smartphone-line"></i><p><b>Download the AlieExpress app</b><br>Shop anywhere & anytime</p>
+        </div>
+      </div>
+  </div>
+  <div class="mainbox">
+    <div class="box1">
+    <div class="buttons">
+      <div class="reg">
+        <a href="#">Register</a>
+      </div>
+        <div class="sign">
+        <a href="#">Sign in</a>
+      </div>
+    </div>
+    <p>Or continue with</p>
+    <div class="links">
+      <a href="facebook.com"><img src="images/facebook.png" alt="facebook" width="35px"></a>
+      <a href="Google.com"><img src="images/google.png" alt="google" width="50px"></a>
+      <a href="twitter.com"><img src="images/twitter.png" alt="twitter" width="34px"></a>
+      <a href="apple.com"><img src="images/apple.png" alt="apple" width="38px"></a>
+    </div>
+    </div>
+
+     <div class="box2">
+     <div class="P">
+      <h2>Welcome Deal</h2>
+      <p>Your exclusive price</p>
+    </div>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="images/dress2.jpg" style="width:100%" height="160">
+      
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="images/Swimwear.jpg" style="width:100%" height="160px">
+        
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="images/bottom.jpg" style="width:100%" height="160px">
+      
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      
+      </div>
+      <br>
+      
+      <!-- <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div> -->
+      
+    <div class="b-price">
+      <h4>ZAR</h4> <p><b>399.29</b></p><h5>ZAR1,106.28</h5> 
+    </div>
+    </div>
+
+    <div class="box3">
+      <div class="heading">
+        <h2>Bestsellers</h2>
+        <p>Get discounts on popular items</p>
+       </div>
+       <div class="b3-con1">
+        <div class="b3-1">
+          <img src="images/box3-1.png" alt="b1">
+        </div>
+        <div class="b3-2">
+          <div class="b-price">
+            <h4>ZAR</h4> <p><b>600.29</b></p><h5>ZAR1...</h5> 
+          </div>
+        </div>
+        <div class="b3-3">
+          <img src="images/price.png" alt="">
+          <p><b>15</b></p>
+        </div>
+        <div class="b3-4">
+          <img src="images/box3-3.png" alt="b3">
+        </div>
+        <div class="b3-5">
+          <div class="b3-price">
+            <h4>ZAR</h4> <p><b>267.58</b></p><h5>ZAR..</h5> 
+          </div>
+        </div>
+       </div>
+    </div>
+
+    <div class="box4">
+      <div class="top">
+        <h2>Top Brands</h2>
+        <p>Top price & quality picks</p>
+      </div>
+      <div class="imgs3">
+        <img src="images/box4-1.png" alt="pic1" width="130px" height="115px">
+        <img src="images/box4-2.png" alt="pic2" width="130px" height="115px">
+        <img src="images/box4-3.png" alt="pic3" width="130px" height="115px">
+      </div>
+      <div class="prices">
+      <h4>ZAR</h4> <p><b>2,233.</b></p><h5>-39%</h5>
+       <h4>ZAR</h4><p><b>743.08</b></p><h5>-45%</h5>
+       <h4>ZAR</h4><p><b>1,035.</b></p><h5>-44%</h5>
+      </div>
+    </div>
+
+     <div class="box5">
+      <div class="head">
+       <h2>Weekly deals</h2>
+       <p>Low prices in the past 30 days</p>
+      </div>
+      <div class="pp">
+        <img src="images/box5-1.png" alt="pic" width="130px" height="115px">
+      </div>
+      <div class="ppara">
+        <h4>ZAR</h4> <p><b>856.13</b></p><h5>ZAR....</h5> 
+      </div>
+    </div>
+  </div>
+
+ <h2>More to Love</h2>
+
+ <div class="main-box">
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/box2-1.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>SSH Straight Bob wig</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          700+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">395</span>.86</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,100.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 1% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/mine-4.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Moon & Star necklace</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          400+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">370</span>.50</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,400.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 3% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/mine-9.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Aooyoweily Sunglasses</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          500+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">690</span>.86</p>
+        </div>
+        <div class="discount">
+          <p>ZAR2,200.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 2% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/mine-7.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Sleek Wig</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          800+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">755</span>.46</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,700.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 6% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/mine-5.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Sport Watche</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          900+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">890</span>.90</p>
+        </div>
+        <div class="discount">
+          <p>ZAR3,700.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 5% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/m9.webp">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Red Tun Sneakers</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          300+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">275</span>.60</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,300.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 5% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/mine-2.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Edarra Human hair</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          1000+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">750</span>.96</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,600.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 4% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="images/m2.webp" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>jewelry(Rings)</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          300+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">145</span>.59</p>
+        </div>
+        <div class="discount">
+          <p>ZAR1,100.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 1% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/m8.webp" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Colorfull Ropes</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          700+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">245</span>.30</p>
+        </div>
+        <div class="discount">
+          <p>ZAR3,100.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 6% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image-con">
+        <img src="./images/box5-1.png" alt="">
+        <div class="trolly">
+          <img src="images/trolley.png" alt="">
+        </div>
+      </div>
+      <div class="paracon">
+        <h6>Puffy Jacket</h6>
+      </div>
+      <div class="star-and-sold">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg>
+        </div>
+        <div class="sold">
+          900+sold
+        </div>
+      </div>
+      <div class="price">
+        <div class="price-1">
+          <p>ZAR<span class="big">750</span>.70</p>
+        </div>
+        <div class="discount">
+          <p>ZAR5,200.00</p>
+        </div>
+      </div>
+      <div class="welcome">
+        <p class="deal">Welcome deal</p>
+        <p class="extra">.Extra 10% off wi...</p>
+      </div>
+      <div class="shipping">
+        <p>Free shipping</p>
+      </div>
+    </div>
+ </div>
+
+    
+<div class="para">
+  <p><b>BROWSE CATEGORIES</b></p>
+</div>
+
+<div class="gallery-wrapp">
+        <div class="gallery">
+    <div>
+      <span><img src="images/sneaker.jpg" width="20px" height="250px"><p><b>SNEAKERS</b></p></span>
+      <span><img src="images/dress.jpg" width="500px" height="250px"><p><b>DRESSES</b></p></span>
+      <span><img src="images/bottom.jpg" width="500px" height="250px"><p><b>BOTTOMS</b></p></span>
+      </div>   
+   <div>
+     <span><img src="images/Watches.jpg" width="500px" height="250px"><p><b>WATCHES</b></p></span>
+     <span><img src="images/Sandal heels.jpg" width="500px" height="250px"><p><b>SANDAL HEELS</b></p></span>
+     <span><img src="images/Swimwear.jpg" width="400px" height="250px"><p><b>SWIMWEAR</b></p></span>
+   </div>
+  </div>
+      </div>
+
+
+<footer>
+  <div class="footer1">
+    <div class="con-main">
+    <div class="conn1">
+      <h4>Customer service</h4>
+      <p>Help Center<br>
+      Transaction Services Agreement for<br>
+      non-EU/UK Consumers<br>
+      Terms and Conditions for EU/EEA/UK<br>
+      Consumers(Transactions)<br>
+      Take our feedback survery</p>
+    </div>
+
+    <div class="con2">
+      <h4>Shopping with us</h4>
+      <p>Making payments<br>
+        Delivery options<br>
+        Buyer Protection</p>
+         <br>
+        <h4>Collabrate with us</h4>
+        <p>Partnership<br>
+        Affiliate program<br>
+        DS Center<br>
+        Seller Log in<br>
+        中国卖家入驻<br>
+        Non Chines Seller Registration<br>
+        </p>
+    </div>
+
+
+    <div class="con3">
+      <h4>Pay with</h4>
+      <img src="images/1-visa card.jpg" alt="card1">
+      <img src="images/2-mastercard.jpg" alt="card2">
+      <img src="images/3-jcb card.jpg" alt="card3">
+      <img src="images/4-american card.jpg" alt="card4">
+      <img src="images/5-paypal card.jpg" alt="card4">
+      <img src="images/6-Google Pay card.jpg" alt="card6"><br>
+      <img src="images/7-ideal card.jpg" alt="card7">
+      <img src="images/8-blik card.jpg" alt="card8">
+      <img src="images/9-klarna card.jpg" alt="card9">
+      <img src="images/10-bancontact card.jpg" alt="card10">
+      <img src="images/11-przelewy14 card.png" alt="card11">
+      <img src="images/12-payu card.png" alt="card12"><br>
+      <img src="images/13-apple card.jpg" alt="card13">
+    </div>
+
+    <div class="con4">
+     <h4>Stay connected</h4>
+     <i class="ri-facebook-box-fill"></i>
+     <i class="ri-twitter-fill"></i>
+     <i class="ri-instagram-line"></i>
+     <i class="ri-messenger-fill"></i><br>
+     <i class="ri-whatsapp-fill"></i>
+    </div>
+</div>
+    <div class="con-main2">
+      <div class="con5">
+       <h4>Help</h4>
+       <p>Help Center, Disputes& Reports, Buyer Protection, Report IPR infringement,<br>
+         Regulated information, Integrity Compliance
+       </p>
+       <br>
+       <h4>Browse by Category</h4>
+       <p>All Popular, Product, Promotion, Low Price, Great Value, Reviews, Blog, Seller<br>
+          Portal, BLACK FRIDAY, AliExpress Assistant</p>
+      </div>
+
+      <div class="con6">
+        <h4>AliExpress Multi-Language Sites</h4>
+        <p>Russian, Portuguess, Spanish, French, German, Italian, Dutch, Turckish, Japanese,<br>
+          Korean, Thai, Vietnamese, Arabic, Habrew, Polish</p>
+          <br>
+          <p>Alibaba Group Website, AliExpress, Alimama, Alipay, Fliggy, Alibaba Cloud, Alibaba<br>
+            International, AliTelecom, DingTalk, Juhuasuan, Taobao Marketplace, Tmail, Taobao<br>
+            Global, AliOS, 1688</p>
+      </div>
+    </div>
+  </div> 
+
+  <div class="footer2">
+  <div class="text-footer">
+    <p>Intellectual Property Protection - Privacy Policy - Sitemap - Terms of Use - Information for EU consumers - Imprint - Transaction Services Agreement for non-EU/UK Consumers - Terms and Conditions for EU/EEA/UK Consumers - User Information Legal Enquiry Guide ©️2010-2023 AliExpress.com. All rights reserved. 增值电信业务经营许可证 增值电信业务经营许可证 浙B2-20120091-8 浙公网安备 浙公网安备 33010802002248号</p>
+  </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+ <!-- Swiper JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+ <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+  
+ 
+
+</body>
+</html>
